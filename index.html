@@ -3,206 +3,697 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEST｜巢．研究所</title>
+    <title>NEST｜巢．研究所 — 植物、巢穴與人類共生研究</title>
+    <!-- Google Fonts: Shippori Mincho (大正浪漫古典明朝體), Noto Serif TC (典雅宋體), Share Tech Mono, Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Noto+Serif+TC:wght@400;600;900&family=Share+Tech+Mono&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #1a1d1a;
-            --card-bg: #242924;
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent-green: #4ade80;
-            --accent-amber: #f59e0b;
-            --border-color: #334155;
+            --bg-wood: #191412;
+            --card-bg: #231c18;
+            --panel-paper: #2a231d;
+            --accent-brass: #d97706;
+            --accent-brass-light: #f59e0b;
+            --accent-leaf: #65a30d;
+            --accent-leaf-bright: #84cc16;
+            --text-main: #f3f0e6;
+            --text-muted: #a89f91;
+            --text-gold: #fbbf24;
+            --border-brass: #574332;
+            --border-highlight: #b45309;
+            /* 字體定義 */
+            --font-retro-serif: 'Shippori Mincho', 'Noto Serif TC', serif;
+            --font-code: 'Share Tech Mono', monospace;
+            --font-display: 'Cinzel', 'Shippori Mincho', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Courier New', Courier, monospace, "Noto Serif TC", serif;
-            background-color: var(--bg-color);
+            font-family: var(--font-retro-serif);
+            background-color: var(--bg-wood);
             color: var(--text-main);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(101, 163, 13, 0.08) 0%, transparent 60%),
+                linear-gradient(to bottom, rgba(25, 20, 18, 0.85), rgba(25, 20, 18, 0.98)),
+                url('http://googleusercontent.com/image_collection/image_retrieval/9766469942118521684_0');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            line-height: 1.85;
+            letter-spacing: 0.03em;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
+        /* 頂部導覽列 */
         header {
-            border-bottom: 2px solid var(--accent-green);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(25, 20, 18, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--border-brass);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
-        .logo-tag {
-            background-color: var(--accent-green);
-            color: #000;
-            font-weight: bold;
-            padding: 2px 8px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin: 10px 0 5px 0;
-            letter-spacing: 3px;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .section-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-green);
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 4px;
-        }
-
-        .warning-box {
-            border-left-color: var(--accent-amber);
-        }
-
-        h2 {
-            font-size: 1.3rem;
-            color: var(--accent-green);
-            margin-top: 0;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        .warning-box h2 {
-            color: var(--accent-amber);
-        }
-
-        ol, ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .hypothesis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
-        .hypothesis-card {
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border: 1px solid var(--border-color);
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, var(--accent-brass), #78350f);
+            color: #fff;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 2px;
+            letter-spacing: 2px;
+            border: 1px solid var(--text-gold);
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: var(--text-gold);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            font-family: var(--font-retro-serif);
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border-brass);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            font-family: var(--font-retro-serif);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            color: var(--text-main);
+            border-color: var(--accent-leaf);
+            background: rgba(101, 163, 13, 0.1);
+        }
+
+        .nav-btn.active {
+            color: var(--bg-wood);
+            background: var(--text-gold);
+            border-color: var(--text-gold);
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+        }
+
+        /* 主要內容容器 */
+        .main-container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 標題 Hero 區塊 */
+        .hero-banner {
+            background: linear-gradient(rgba(35, 28, 24, 0.85), rgba(35, 28, 24, 0.95)), url('http://googleusercontent.com/image_collection/image_retrieval/13865872783170722912_0');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--border-highlight);
+            padding: 40px;
+            text-align: center;
             border-radius: 4px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8), 0 8px 30px rgba(0,0,0,0.5);
         }
 
-        .hypothesis-title {
-            color: var(--accent-green);
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px dashed var(--border-brass);
+            pointer-events: none;
         }
 
+        .hero-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--text-gold);
+            letter-spacing: 5px;
+            margin-bottom: 12px;
+            font-family: var(--font-retro-serif);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        /* 分頁內容切換控制 */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 模組與卡片樣式 */
+        .panel {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-brass);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px dashed var(--border-brass);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .panel-icon {
+            color: var(--accent-leaf-bright);
+            font-size: 1.2rem;
+        }
+
+        .panel-title {
+            font-size: 1.35rem;
+            color: var(--text-gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .warning-theme {
+            border-left: 4px solid var(--accent-brass-light);
+        }
+
+        .warning-theme .panel-title {
+            color: var(--accent-brass-light);
+        }
+
+        /* 研究假說網格 */
+        .hypothesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .hypothesis-card {
+            background: var(--panel-paper);
+            border: 1px solid var(--border-brass);
+            padding: 20px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .hypothesis-no {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-leaf-bright);
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .hypothesis-text {
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        /* 列表規則 */
+        .rule-list {
+            list-style: none;
+            counter-reset: rule-counter;
+        }
+
+        .rule-list li {
+            counter-increment: rule-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 0.98rem;
+        }
+
+        .rule-list li::before {
+            content: "0" counter(rule-counter);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-brass-light);
+            font-size: 0.85rem;
+            background: rgba(217, 119, 6, 0.15);
+            padding: 2px 6px;
+            border: 1px solid var(--border-brass);
+            border-radius: 2px;
+        }
+
+        /* 研究紀錄條目 */
         .log-entry {
+            background: rgba(15, 12, 10, 0.6);
+            border-left: 3px solid var(--accent-leaf);
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .log-tag {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            margin-right: 10px;
+            color: var(--text-gold);
+            font-weight: bold;
+        }
+
+        .log-infer {
+            color: var(--accent-leaf-bright);
+            font-style: italic;
+            margin-top: 6px;
             font-size: 0.9rem;
-            background: #111411;
-            padding: 12px;
-            border-left: 2px solid var(--text-muted);
+            display: block;
+        }
+
+        /* 菜單（研究介質）樣式 */
+        .menu-category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            color: var(--accent-leaf-bright);
+            font-size: 1.15rem;
+            border-bottom: 1px solid var(--border-brass);
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px stroke rgba(255,255,255,0.05);
+        }
+
+        .item-info {
+            max-width: 80%;
+        }
+
+        .item-name {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .item-price {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--text-gold);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* 員工/研究員卡片 */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .staff-card {
+            background: var(--panel-paper);
+            border: 1px solid var(--border-brass);
+            border-radius: 4px;
+            overflow: hidden;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .staff-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--bg-wood);
+            border: 2px solid var(--accent-brass);
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--text-muted);
+        }
+
+        .staff-name {
+            font-size: 1.2rem;
+            color: var(--text-gold);
+            font-weight: bold;
+        }
+
+        .staff-role {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-leaf-bright);
+            font-size: 0.85rem;
             margin-bottom: 10px;
         }
 
-        .log-id {
-            color: var(--accent-amber);
-            font-weight: bold;
+        .staff-bio {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            text-align: left;
+            line-height: 1.6;
+            margin-top: 10px;
+            border-top: 1px dashed var(--border-brass);
+            padding-top: 10px;
         }
 
+        /* 頁尾 */
         footer {
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            padding: 40px 0 20px 0;
+            border-top: 1px solid var(--border-brass);
+            margin-top: 60px;
+        }
+
+        .location-box {
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--border-brass);
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-leaf-bright);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <!-- 頂部導覽 -->
     <header>
-        <span class="logo-tag">CLASSIFIED RESEARCH FILE</span>
-        <h1>NEST｜巢．研究所</h1>
-        <div class="subtitle">本研宗旨：研究植物、巢穴與人類三者間之共生關係，探討「舒適」是否能作為一種植物生長媒介。</div>
+        <div class="header-inner">
+            <div class="brand">
+                <span class="brand-badge">GRIDANIA LAB</span>
+                <span class="brand-title">NEST｜巢．研究所</span>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="switchTab('about')">本所宗旨</button>
+                <button class="nav-btn" onclick="switchTab('rules')">受試須知</button>
+                <button class="nav-btn" onclick="switchTab('menu')">研究介質（菜單）</button>
+                <button class="nav-btn" onclick="switchTab('staff')">研究員名冊</button>
+                <button class="nav-btn" onclick="switchTab('logs')">觀察紀錄</button>
+            </nav>
+        </div>
     </header>
 
-    <!-- 注意事項 -->
-    <div class="section-box warning-box">
-        <h2>【研究對象注意事項】</h2>
-        <ol>
-            <li>進入本所後，視同自願成為研究樣本。</li>
-            <li>請勿拔取、啃食或擅自帶走研究植物。</li>
-            <li>若植物主動靠近您，請保持冷靜。</li>
-            <li>若發現自己開始對某一巢產生歸屬感，屬正常研究現象。</li>
-            <li>巢內可以睡覺。但請勿霸佔超過一個研究週期。</li>
-            <li>若研究員提供咖啡，請飲用。這是研究的一環。</li>
-            <li>若您在巢中睡著，研究員有權記錄您的睡眠狀況。</li>
-            <li>本所不保證研究結束後您仍願意離開。</li>
-        </ol>
+    <div class="main-container">
+
+        <!-- Banner 橫幅 -->
+        <div class="hero-banner">
+            <h1 class="hero-title">NEST｜巢．研究所</h1>
+            <p class="hero-sub">
+                本研宗旨：研究植物、巢穴與人類三者間之共生關係。<br>
+                探討「舒適」是否能作為一種植物生長媒介。
+            </p>
+        </div>
+
+        <!-- TAB 1: 關於與假說 -->
+        <div id="tab-about" class="tab-content active">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-icon">🌿</span>
+                    <h2 class="panel-title">核心研究假說 (RESEARCH HYPOTHESES)</h2>
+                </div>
+                <div class="hypothesis-grid">
+                    <div class="hypothesis-card">
+                        <span class="hypothesis-no">HYPOTHESIS N-01</span>
+                        <div class="hypothesis-text">人類於巢中感到越舒適，植物生長狀況越良好。</div>
+                    </div>
+                    <div class="hypothesis-card">
+                        <span class="hypothesis-no">HYPOTHESIS N-02</span>
+                        <div class="hypothesis-text">適量咖啡香氣可能對部分植物具有正向刺激作用。</div>
+                    </div>
+                    <div class="hypothesis-card">
+                        <span class="hypothesis-no">HYPOTHESIS N-03</span>
+                        <div class="hypothesis-text">兩名以上研究對象共同棲息於同一巢穴時，植物生長速度可能提升。</div>
+                    </div>
+                    <div class="hypothesis-card">
+                        <span class="hypothesis-no">HYPOTHESIS N-04</span>
+                        <div class="hypothesis-text">睡眠中的人類會產生特殊的「巢氣」，其成分及對植物之影響尚待研究。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-icon">🪵</span>
+                    <h2 class="panel-title">巢穴類型簡介 (NEST TYPES)</h2>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 15px;">本所提供各種精心調配的植物共生巢穴，供受試者體驗並提供生長數據：</p>
+                <ul style="padding-left: 20px; color: var(--text-main);">
+                    <li><strong>單人獨居巢：</strong> 適合專心沉思或短暫休眠的個體，環境安寧。</li>
+                    <li><strong>多棲共生巢：</strong> 設有大量軟墊與溫暖光線，鼓勵多名對象共同築巢。</li>
+                    <li><strong>沉睡深巢：</strong> 配有高危險性抱枕，深度睡眠率高達 98%。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 2: 受試須知 -->
+        <div id="tab-rules" class="tab-content">
+            <div class="panel warning-theme">
+                <div class="panel-header">
+                    <span class="panel-icon">⚠️</span>
+                    <h2 class="panel-title">研究對象注意事項 (SUBJECT RULES)</h2>
+                </div>
+                <ol class="rule-list">
+                    <li>進入本所後，視同自願成為研究樣本。</li>
+                    <li>請勿拔取、啃食或擅自帶走研究植物。</li>
+                    <li>若植物主動靠近您，請保持冷靜。</li>
+                    <li>若發現自己開始對某一巢產生歸屬感，屬正常研究現象。</li>
+                    <li>巢內可以睡覺。但請勿霸佔超過一個研究週期。</li>
+                    <li>若研究員提供咖啡，請飲用。這是研究的一環。</li>
+                    <li>若您在巢中睡著，研究員有權記錄您的睡眠狀況。</li>
+                    <li>本所不保證研究結束後您仍願意離開。</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- TAB 3: 菜單 (研究介質) -->
+        <div id="tab-menu" class="tab-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-icon">☕</span>
+                    <h2 class="panel-title">研究介質清單 (REAGENTS & BEVERAGES)</h2>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">【黑色浸出液 / 咖啡類】</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">N-02 號常規刺激劑 (濃縮黑咖啡)</div>
+                            <div class="item-desc">深焙咖啡豆提煉，具強烈香氣。推測可活化人類與植物交感神經。</div>
+                        </div>
+                        <div class="item-price">300 Gil</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">乳化溫和緩釋劑 (拿鐵咖啡)</div>
+                            <div class="item-desc">加入溫熱鮮乳，能有效降低受試者的戒心與離巢意願。</div>
+                        </div>
+                        <div class="item-price">400 Gil</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">【森林植物萃取 / 茶飲類】</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">森都枯葉舒緩茶 (古樹紅茶)</div>
+                            <div class="item-desc">採集自黑衣森林發酵茶葉，散發淡淡木質香氣。</div>
+                        </div>
+                        <div class="item-price">350 Gil</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">微光苔蘚鎮靜飲 (薄荷草本茶)</div>
+                            <div class="item-desc">清涼口感，能使過熱的大腦迅速冷卻並進入休眠狀態。</div>
+                        </div>
+                        <div class="item-price">350 Gil</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">【固態營養塊 / 茶點類】</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">沉積苔蘚鬆餅 (抹茶烤鬆餅)</div>
+                            <div class="item-desc">外酥內軟，表面覆蓋綠色粉末，長相極度接近培養皿樣本。</div>
+                        </div>
+                        <div class="item-price">500 Gil</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: 研究員名冊 -->
+        <div id="tab-staff" class="tab-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-icon">🥼</span>
+                    <h2 class="panel-title">駐所研究員名冊 (RESEARCH STAFF)</h2>
+                </div>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <div class="staff-avatar">☕</div>
+                        <div class="staff-name">研究員 首席</div>
+                        <div class="staff-role">ID: CHIEF-01 / 介質調配專員</div>
+                        <div class="staff-bio">
+                            負責 N-02 假說咖啡介質的現場沖煮與發放。擅長觀察受試者飲用後的築巢行為。
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <div class="staff-avatar">🌱</div>
+                        <div class="staff-name">研究員 助理</div>
+                        <div class="staff-role">ID: ASST-02 / 植物行為記錄員</div>
+                        <div class="staff-bio">
+                            負責監測植物芽孢對人類睡眠氣味的反應。若發現植物靠您太近，請向其通報。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: 觀察紀錄 -->
+        <div id="tab-logs" class="tab-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-icon">📓</span>
+                    <h2 class="panel-title">觀察日誌摘要 (RESEARCH LOGS)</h2>
+                </div>
+
+                <div class="log-entry">
+                    <span class="log-tag">【研究紀錄 017】</span>
+                    研究對象於巢內飲用熱飲後，平均停留時間增加 43%。
+                    <span class="log-infer">推測：咖啡具有築巢誘導性。</span>
+                </div>
+
+                <div class="log-entry">
+                    <span class="log-tag">【研究紀錄 024】</span>
+                    研究對象在抱枕數量增加後，主動離巢意願顯著降低。
+                    <span class="log-infer">推測：抱枕具有高度危險性。</span>
+                </div>
+
+                <div class="log-entry">
+                    <span class="log-tag">【研究紀錄 031】</span>
+                    某株植物於研究對象午睡後突然抽出新芽。原因不明。
+                    <span class="log-infer">目前已將研究對象列為植物肥料替代品候選。</span>
+                </div>
+
+                <div class="log-entry">
+                    <span class="log-tag">【研究紀錄 042】</span>
+                    研究員發現，某些研究對象會在沒有任何指示的情況下自行尋找巢穴。
+                    <span class="log-infer">「人類似乎天生具有築巢本能。」</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- 研究假說 -->
-    <div class="section-box">
-        <h2>【研究假說】</h2>
-        <div class="hypothesis-grid">
-            <div class="hypothesis-card">
-                <div class="hypothesis-title">【研究假說 N-01】</div>
-                <div>人類於巢中感到越舒適，植物生長狀況越良好。</div>
-            </div>
-            <div class="hypothesis-card">
-                <div class="hypothesis-title">【研究假說 N-02】</div>
-                <div>適量咖啡香氣可能對部分植物具有正向刺激作用。</div>
-            </div>
-            <div class="hypothesis-card">
-                <div class="hypothesis-title">【研究假說 N-03】</div>
-                <div>兩名以上研究對象共同棲息於同一巢穴時，植物生長速度可能提升。</div>
-            </div>
-            <div class="hypothesis-card">
-                <div class="hypothesis-title">【研究假說 N-04】</div>
-                <div>睡眠中的人類會產生特殊的「巢氣」，其成分及對植物之影響尚待研究。</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 觀察日誌 -->
-    <div class="section-box">
-        <h2>【最新研究紀錄摘要】</h2>
-        <div class="log-entry">
-            <span class="log-id">【研究紀錄 017】</span> 研究對象於巢內飲用熱飲後，平均停留時間增加 43%。<br>
-            <em>推測：咖啡具有築巢誘導性。</em>
-        </div>
-        <div class="log-entry">
-            <span class="log-id">【研究紀錄 024】</span> 研究對象在抱枕數量增加後，主動離巢意願顯著降低。<br>
-            <em>推測：抱枕具有高度危險性。</em>
-        </div>
-        <div class="log-entry">
-            <span class="log-id">【研究紀錄 031】</span> 某株植物於研究對象午睡後突然抽出新芽。原因不明。<br>
-            <em>目前已將研究對象列為植物肥料替代品候選。</em>
-        </div>
-        <div class="log-entry">
-            <span class="log-id">【研究紀錄 042】</span> 研究員發現，某些研究對象會在沒有任何指示的情況下自行尋找巢穴。<br>
-            <em>「人類似乎天生具有築巢本能。」</em>
-        </div>
-    </div>
-
+    <!-- 頁尾與據點資訊 -->
     <footer>
-        FINAL FANTASY XIV RP EVENT / NEST LABORATORY &copy; 2026
+        <p>NEST｜巢．研究所 — FINAL FANTASY XIV RP VENUE</p>
+        <div class="location-box">
+            📍 LOCATION: Mana / Elemental [伺服器名] Gridania [區塊與門牌號]
+        </div>
     </footer>
-</div>
 
+    <!-- 分頁切換腳本 -->
+    <script>
+        function switchTab(tabId) {
+            // 隱藏所有頁面
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            // 移除所有按鈕 active 樣式
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // 顯示目標頁面
+            const target = document.getElementById('tab-' + tabId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // 設置按鈕 active 樣式
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
+```
+
+---
+
+### 更新亮點與細節：
+
+1. **視覺沉浸感提升**：
+   * 背景使用了溫暖暗木質與森林黃銅光澤的調色，非常貼合**「森都 Gridania + 大正實驗室」**的沉浸視覺。
+2. **切換分頁（單頁多功能）**：
+   * 點選頂部的「本所宗旨」、「受試須知」、「研究介質（菜單）」、「研究員名冊」與「觀察紀錄」按鈕，網頁會流暢切換內容，不需要重新載入。
+3. **已預留可編輯欄位**：
+   * **菜單區**：可以直接替換 Gil 價格與咖啡茶點名稱。
+   * **員工名冊區**：可以替換為你和你朋友的 RP 角色名稱、照片（網址）與介紹。
+   * **頁尾區**：預留了伺服器名稱與門牌號碼位置。
+
+你只要用這個新版本的程式碼替換 GitHub 上的 `index.html` 內容並 Commit 保存，網站就會自動變身為這版大正森都風格囉！
+
+你看一下這個風格感覺如何？接下來我們想先填寫「研究員名冊（員工介紹）」還是補齊「菜單細節」呢？
