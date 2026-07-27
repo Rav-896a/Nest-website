@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEST｜巢．研究所</title>
+    <style>
+        :root {
+            --bg-color: #1a1d1a;
+            --card-bg: #242924;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-green: #4ade80;
+            --accent-amber: #f59e0b;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace, "Noto Serif TC", serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-tag {
+            background-color: var(--accent-green);
+            color: #000;
+            font-weight: bold;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 10px 0 5px 0;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .section-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-green);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            border-left-color: var(--accent-amber);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--accent-green);
+            margin-top: 0;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .warning-box h2 {
+            color: var(--accent-amber);
+        }
+
+        ol, ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .hypothesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .hypothesis-card {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .hypothesis-title {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .log-entry {
+            font-size: 0.9rem;
+            background: #111411;
+            padding: 12px;
+            border-left: 2px solid var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .log-id {
+            color: var(--accent-amber);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="logo-tag">CLASSIFIED RESEARCH FILE</span>
+        <h1>NEST｜巢．研究所</h1>
+        <div class="subtitle">本研宗旨：研究植物、巢穴與人類三者間之共生關係，探討「舒適」是否能作為一種植物生長媒介。</div>
+    </header>
+
+    <!-- 注意事項 -->
+    <div class="section-box warning-box">
+        <h2>【研究對象注意事項】</h2>
+        <ol>
+            <li>進入本所後，視同自願成為研究樣本。</li>
+            <li>請勿拔取、啃食或擅自帶走研究植物。</li>
+            <li>若植物主動靠近您，請保持冷靜。</li>
+            <li>若發現自己開始對某一巢產生歸屬感，屬正常研究現象。</li>
+            <li>巢內可以睡覺。但請勿霸佔超過一個研究週期。</li>
+            <li>若研究員提供咖啡，請飲用。這是研究的一環。</li>
+            <li>若您在巢中睡著，研究員有權記錄您的睡眠狀況。</li>
+            <li>本所不保證研究結束後您仍願意離開。</li>
+        </ol>
+    </div>
+
+    <!-- 研究假說 -->
+    <div class="section-box">
+        <h2>【研究假說】</h2>
+        <div class="hypothesis-grid">
+            <div class="hypothesis-card">
+                <div class="hypothesis-title">【研究假說 N-01】</div>
+                <div>人類於巢中感到越舒適，植物生長狀況越良好。</div>
+            </div>
+            <div class="hypothesis-card">
+                <div class="hypothesis-title">【研究假說 N-02】</div>
+                <div>適量咖啡香氣可能對部分植物具有正向刺激作用。</div>
+            </div>
+            <div class="hypothesis-card">
+                <div class="hypothesis-title">【研究假說 N-03】</div>
+                <div>兩名以上研究對象共同棲息於同一巢穴時，植物生長速度可能提升。</div>
+            </div>
+            <div class="hypothesis-card">
+                <div class="hypothesis-title">【研究假說 N-04】</div>
+                <div>睡眠中的人類會產生特殊的「巢氣」，其成分及對植物之影響尚待研究。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 觀察日誌 -->
+    <div class="section-box">
+        <h2>【最新研究紀錄摘要】</h2>
+        <div class="log-entry">
+            <span class="log-id">【研究紀錄 017】</span> 研究對象於巢內飲用熱飲後，平均停留時間增加 43%。<br>
+            <em>推測：咖啡具有築巢誘導性。</em>
+        </div>
+        <div class="log-entry">
+            <span class="log-id">【研究紀錄 024】</span> 研究對象在抱枕數量增加後，主動離巢意願顯著降低。<br>
+            <em>推測：抱枕具有高度危險性。</em>
+        </div>
+        <div class="log-entry">
+            <span class="log-id">【研究紀錄 031】</span> 某株植物於研究對象午睡後突然抽出新芽。原因不明。<br>
+            <em>目前已將研究對象列為植物肥料替代品候選。</em>
+        </div>
+        <div class="log-entry">
+            <span class="log-id">【研究紀錄 042】</span> 研究員發現，某些研究對象會在沒有任何指示的情況下自行尋找巢穴。<br>
+            <em>「人類似乎天生具有築巢本能。」</em>
+        </div>
+    </div>
+
+    <footer>
+        FINAL FANTASY XIV RP EVENT / NEST LABORATORY &copy; 2026
+    </footer>
+</div>
+
+</body>
+</html>
